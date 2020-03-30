@@ -1,0 +1,60 @@
+body {
+    background-color: beige;
+
+}
+
+.todo-list {
+    font-size: 1.5em;
+}
+
+
+.done {
+    text-decoration: line-through;
+}
+
+.filter-container {
+    background-color: lightgray;
+    padding: 10px;;
+}
+
+.sort-container {
+    background-color: salmon;
+    padding: 10px;
+}
+
+.todo-urgent {
+    color: red;
+}
+
+.todo {
+    color: orange;
+}
+
+.todo-causal {
+    color: green;
+    
+}
+
+li {
+    display: flex;
+    width:60%;
+    justify-content: space-between
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end
+}
+
+button {
+    cursor: pointer;
+    margin: 5px;
+  background-color: skyblue;
+    border-radius: 10px;
+   
+}
+
+
+.removeButton {
+    background-color: salmon;
+}
