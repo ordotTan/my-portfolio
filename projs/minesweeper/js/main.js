@@ -496,7 +496,6 @@ function setMinesNegsCount(board) {
     }
 }
 
-}
 
 function countNegMines(cellI, cellJ, mat) {
     var minesAroundCellCount = 0;

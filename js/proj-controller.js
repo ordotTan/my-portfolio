@@ -104,10 +104,9 @@ function getProjModalHTML(project) {
 
 function onSubmitContact() {
   const formInput =  $(".form-control")
-  const email = formInput[0].value
-  const subject = formInput[1].value
-  const msgBody = formInput[2].value
-  const emailLink = 'https://mail.google.com/mail/?view=cm&fs=1&to='+email+'&su='+subject+'&body='+msgBody
+  const subject = formInput[0].value
+  const msgBody = formInput[1].value
+  const emailLink = 'https://mail.google.com/mail/?view=cm&fs=1&to=ordel23@gmail.com&su='+subject+'&body='+msgBody
   window.open(emailLink, "_blank");
 }
 
