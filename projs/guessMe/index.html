@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>My App</title>
+  <!-- <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" /> -->
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header class="box">
+    <img src="img/layout/logo2.png" />
+    <h1 class="bg-dark text-light">Guess Who</h1>
+  </header>
+
+  <main class="bg-info">
+    <section class="game-start">
+      <h2>Think of Someone...</h2>
+      <button onclick="onStartGuessing()" class="btn btn-lg btn-success border-dark">I'm Ready!</button>
+    </section>
+    <section class="quest" style="display: none">
+
+      <div class="jumbotron jumbotron-fluid bg-dark text-light">
+        <div class="container">
+          <h1 class="display-5">Fluid jumbotron</h1>
+        </div>
+      </div>
+
+
+      <button onclick="onUserResponse('yes')" class="btn bg-dark text-light btn-lg btn-outline-light">Yes</button>
+      <button onclick="onUserResponse('no')"
+        class="btn bg-light text-dark btn-lg border border-dark btn-outline-dark">No</button>
+    </section>
+    <section class="new-quest" style="display: none">
+      <h2>OK, I gave up...</h2>
+
+      <form class="form-horizontal">
+        <div class="form-group text-left">
+          <label for="newGuess" class="col-sm-12 control-label font-weight-bold">You thought of: </label>
+          <div class="col-sm-12">
+            <input name="newGuess" type="txt" class="form-control" id="newGuess" placeholder="Your Guess" required>
+          </div>
+        </div>
+        <div class="form-group text-left">
+          <label for="newQuest" class="col-sm-12 control-label font-weight-bold">Question to differentiate</label>
+          <div class="col-sm-12">
+            <input name="newQuest" type="txt" class="form-control" id="newQuest"
+              placeholder="The answer is YES for yours" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="submit" onclick="onAddGuess(); return false;" class="btn btn-primary border-dark">
+              Make me Smarter!
+            </button>
+            <br>
+            <div class="spinner-border text-primary mt-10" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  
+  </main>
+
+  <!-- Game over Modal-->
+  <div class="modal fade" id="endGame" tabindex="-1" role="dialog" aria-labelledby="endGameLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center text-success" id="endGameLabel">Game over</h5>
+        </div>
+        <div class="modal-body text-center font-weight-bold text-success display-3">
+          I did it again !
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    copyrights &copy; 2020
+  </footer>
+
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="js/storage-service.js"></script>
+  <script src="js/quest-service.js"></script>
+  <script src="js/quest-controller.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+body {
+background-color: teal;
+vertical-align: center;
+border: 1;
+}
+
+.main {
+    vertical-align: center;
+}
+
+table {
+    border: 10;
+}
+
+td {
+    background-color: lightgray;
+    width: 30px;
+    height: 30px;
+    transition: 0.8s;
+    text-align: center;
+    font-size: x-large;
+}
+
+.mil-seconds {
+    color: white;
+}
+
+label {
+    color:white;
+}
+
+.marked-cell {
+    background-color: green;
+}
+
+.help-cell {
+    background-color: yellow;
+   
+}
+
+.new-game-button {
+    background-color: #4CAF50; /* Green */
+    
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor:pointer;
+}
+
+.help-button {
+    background-color:lightseagreen; /* Green */
+    border: none;
+    color: white;
+    padding: 13px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 15px;
+    cursor:pointer;
+}
+
+.result {
+    border: none;
+    color:orange   ;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    border-radius: 15px;
+
+}
+
+h1 {
+    color:orange
+}

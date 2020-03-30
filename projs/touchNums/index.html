@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Touch Numbers</title>
+</head>
+<body onload="init()" onkeyup="handleKey(event)">
+    <div class="main">
+    <h1> Touch Numbers Game</h1>
+    <div onclick="init()" class="new-game-button">New Game</div>
+    <input onchange="setDiffulty(this)"  type="radio" name='difficulty' value="Beginner" checked><label>Beginner (4)</label>
+    <input onchange="setDiffulty(this)"  type="radio" name='difficulty' value="Easy"><label>Easy (16)</label>
+    <input onchange="setDiffulty(this)" type="radio" name='difficulty'  value="Hard"><label>Hard (25)</label>
+    <input onchange="setDiffulty(this)" type="radio" name='difficulty'  value="Extreme!"><label>Extreme! (36)</label>
+    <div class="mil-seconds">Game Time: 0:000 seconds</div>
+    <table border="1" cellpadding="10">
+        <tbody class="board"></tbody>
+    </table>
+    <label class='nextNumber'>Next Number:</label>
+    <div onclick="getHelp()" class="help-button">Locate 1</div>
+    <div class="result"></div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

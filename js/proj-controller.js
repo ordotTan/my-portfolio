@@ -66,6 +66,8 @@ function getProjModalHTML(project) {
     const modalId = 'portfolioModal-' + project.id
     const date = project.publishedAt
     const url = project.url
+    const longDesc = project.longDesc
+    
 
     return `<div class="modal fade" id="${modalId}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -83,9 +85,7 @@ function getProjModalHTML(project) {
                 <h2>${projName}</h2>
                 <p class="item-intro text-muted">${projDesc}</p>
                 <img class="img-size img-fluid d-block mx-auto" src="${imgURL}" alt="${projName}" title="${projName}">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                  dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
-                  maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <p>${longDesc}</p>
                 <ul class="list-inline">
                   <li>Created on ${date}</li>
                   <li class="label-${projId}"></li> 
