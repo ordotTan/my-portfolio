@@ -1,0 +1,21 @@
+.img-size {
+    width: 100%;
+    height: 250px;
+    image-resolution:300dpi;  ;
+}
+
+.badge-size {
+    margin-right: 0.7rem;
+    font-size: 15px;
+}
+
+.my-name {
+    color: red;
+    transition:2s;
+
+}
+
+.my-name:hover {
+    color:purple;
+    font-size: 60px;
+}

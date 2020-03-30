@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pacman</title>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body onkeyup="movePacman(event)">
+  <button onclick="init()">Start Game</button>
+ <header>
+     <h3>Score: <span>0</span> </h3> 
+     <h4>Remaining Food: <span>0</span> </h3> 
+ </header> 
+ <!-- <span style="color:#7753F0">'heelo'</span> -->
+ <div class="board-container"></div>
+ <div class="modal"></div>
+
+ <script src="js/util.js"></script> 
+ <script src="js/pacman.js"></script>
+ <script src="js/ghost.js"></script>
+ <script src="js/game.js"></script>
+</body>
+</html>
+
