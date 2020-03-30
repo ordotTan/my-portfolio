@@ -1,6 +1,6 @@
 .img-size {
     width: 100%;
-    height: 250px;
+    height: 200px;
     image-resolution:300dpi;  ;
 }
 
@@ -8,6 +8,11 @@
     margin-right: 0.7rem;
     font-size: 15px;
 }
+
+/* .portfolio-caption-size {
+    height: 200px;
+
+} */
 
 .my-name {
     color: red;
@@ -18,4 +23,9 @@
 .my-name:hover {
     color:purple;
     font-size: 60px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-around;
 }

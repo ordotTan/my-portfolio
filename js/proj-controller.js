@@ -48,7 +48,7 @@ function getProjectHTML(project) {
       </div>
       <img class="img-size img-fluid" src="${imgURL}" alt="">
     </a>
-    <div class="portfolio-caption">
+    <div class="portfolio-caption-size portfolio-caption">
       <h4>${projName}</h4>
       <p class="text-muted">${projDesc}</p>
       <a href="${url}" target="_blank" class="btn btn-primary stretched-link">Check it Out</a>
@@ -90,8 +90,12 @@ function getProjModalHTML(project) {
                   <li>Created on ${date}</li>
                   <li class="label-${projId}"></li> 
                 </ul>
+                <div class="modal-footer">
                 <a href="${url}" target="_blank" class="btn btn-primary stretched-link">Check it Out</a>
-
+                <button class="btn btn-link" data-dismiss="modal" type="button">
+                    <i class="fa fa-times"></i>
+                    Close Project</button>
+                </div>
               </div>
             </div>
           </div>
