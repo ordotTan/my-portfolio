@@ -288,7 +288,7 @@ header.masthead .intro-text .intro-heading {
 }
 #portfolio .portfolio-item .portfolio-caption {
     max-width: 400px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 25px;
     text-align: center;
     background-color: white;

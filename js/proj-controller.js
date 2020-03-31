@@ -60,7 +60,7 @@ function getProjectHTML(project) {
   const projName = project.title
   const projDesc = project.desc
   const url = project.url
-  return `<div class="col-md-4 col-sm-6 portfolio-item">
+  return `<div class="col-md-4 col-sm-6 portfolio-item flex-column">
     <a class="portfolio-link" data-toggle="modal" onclick="renderModal('${projId}')" href="#projModal">
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
@@ -69,7 +69,7 @@ function getProjectHTML(project) {
       </div>
       <img class="img-size img-fluid" src="${imgURL}" alt="">
     </a>
-    <div class="portfolio-caption-size portfolio-caption">
+    <div class="portfolio-caption-size portfolio-caption flex-column space-between flex-grow">
       <h4>${projName}</h4>
       <p class="text-muted">${projDesc}</p>
       <a href="${url}" target="_blank" class="btn btn-primary stretched-link">Check it Out</a>
