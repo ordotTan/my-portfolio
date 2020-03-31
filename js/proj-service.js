@@ -6,9 +6,12 @@
 // 4.Guessme
 // 5.touchNums
 // 6.ballBoard
+//pending
+// 7.Todos
+
 var gProjects = []
 
-var gProjIDs = [
+const gProjIDs = [
     'bookshop',
     'pacman',
     'minesweeper',
@@ -17,7 +20,7 @@ var gProjIDs = [
     'ballBoard'
 ]
 
-var gProjNames = [
+const gProjNames = [
     'Book-Shop',
     'Pac-Man',
     'Minesweeper',
@@ -26,7 +29,7 @@ var gProjNames = [
     'Balls-on-Board'
 ]
 
-var gProjTitles = [
+const gProjTitles = [
     'Book-Shop',
     'Pac-Man',
     'Minesweeper',
@@ -35,7 +38,7 @@ var gProjTitles = [
     'Balls-on-Board'
 ]
 
-var gProjDescs = [
+const gProjDescs = [
     'Managing your book collection',
     'Play the nostalgic game of Pac-man',
     'Another classic hit from the 90\'s',
@@ -44,7 +47,7 @@ var gProjDescs = [
     'Can you collect all the balls fast enough?'
 ]
 
-var gProgLongDesc = [
+const gProgLongDesc = [
     'Book-shop web application that is implemented according the the CRUD & MVC concepts, and gives the user the full solution for books inventory management: Add books (Create), list all inventory (Read) modify data (Update) and remove books (Delete).',
     'Homage to the popular Pac-man game, where you need to eat all food, before getting caught by the evit spirits.',
     'An updated version to the classic Minesweepr game, with some special features that should help you flag all the bombs, before getting exploded',
@@ -53,7 +56,7 @@ var gProgLongDesc = [
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis corrupti recusandae error sapiente exercitationem obcaecati. Architecto atque corporis, qui omnis, vel voluptatem adipisci dolor quod vero sunt dicta hic ut'
 ]
 
-var gProjDates= [
+const gProjDates= [
     '26-March-2020',
     '16-Match-2020',
     '19-Match-2020',
@@ -63,15 +66,9 @@ var gProjDates= [
 
 ]
 
-// Order of apps:
-// 1.bookshop
-// 2.pacman
-// 3.minesweeper
-// 4.Guessme
-// 5.touchNums
-// 6.ballBoard
 
-var gProjLabels = [
+
+const gProjLabels = [
     ["CRUD", "MVC"],
     ["Matrixes", "Keyboard Events"],
     ["Matrixes", "Functional Programming"],
@@ -105,4 +102,13 @@ function _createProject(id, name, title, desc, longDesc, url, publishedAt, label
         publishedAt: publishedAt,
         labels: labels
     }
+}
+
+
+function getItemById(itemId) {
+    var item = gPtfItems.find(item => {
+        return itemId ===  item.id;
+    })
+    console.log(item)
+    return item
 }
