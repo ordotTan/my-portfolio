@@ -15,7 +15,7 @@ function createPacman(board) {
     },
     isSuper: false,
     image: PACMAN,
-    image_path: `/imgs/pcman_right`,
+    image_path: `../imgs/pcman_right`,
   };
   board[gPacman.location.i][gPacman.location.j] = gPacman.image;
 
@@ -93,19 +93,19 @@ function getNextLocation(keyboardEvent) {
   switch (keyboardEvent.code) {
     case 'ArrowUp':
       nextLocation.i--;
-      gPacman.image_path = gPacman.isSuper? '/imgs/pcman_up_super' : '/imgs/pcman_up'
+      gPacman.image_path = gPacman.isSuper? '../imgs/pcman_up_super' : '../imgs/pcman_up'
       break;
     case 'ArrowDown':
       nextLocation.i++;
-      gPacman.image_path = gPacman.isSuper? '/imgs/pcman_down_super' : '/imgs/pcman_down'
+      gPacman.image_path = gPacman.isSuper? '../imgs/pcman_down_super' : '../imgs/pcman_down'
       break;
     case 'ArrowLeft':
       nextLocation.j--;
-      gPacman.image_path = gPacman.isSuper? '/imgs/pcman_left_super' : '/imgs/pcman_left'
+      gPacman.image_path = gPacman.isSuper? '../imgs/pcman_left_super' : '../imgs/pcman_left'
       break;
     case 'ArrowRight':
       nextLocation.j++;
-      gPacman.image_path = gPacman.isSuper? '/imgs/pcman_right_super' : '/imgs/pcman_right'
+      gPacman.image_path = gPacman.isSuper? '../imgs/pcman_right_super' : '../imgs/pcman_right'
       break;
     default: return null;
   }
