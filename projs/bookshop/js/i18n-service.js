@@ -87,7 +87,14 @@ var gTrans = {
     changeLangDropdown: {
         en: 'Change Language',
         he: 'שינוי שפה'
+    },
+    newBookModalTitle: {
+        en: 'Hooray! New Book!',
+        he: 'הידד! ספר חדש!'
     }
+
+
+    
 }
 
 function getTrans(transKey) {
