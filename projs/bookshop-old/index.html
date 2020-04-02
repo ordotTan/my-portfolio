@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+    <title>Book Store</title>
+</head>
+
+<body onload="onInit()">
+
+    <section class="upper-toolbar">
+        <button class="add-book-button" onclick="onShowAddBookToggle()">Add New Book</button>
+        <div class="add-book-input">
+            Book Name: <input type="text" name="name"></input>
+            Book Price: <input type="number" name="price"></input>
+            <button class="add-book-confirm-btn" onclick="onAddBook()">Confirm</button>
+        </div>
+    </section>
+
+
+    <section class="main-content">
+
+        <h1>My Books</h1>
+        <table>
+            <thead>
+                <th>#</th>
+                <th>ID</th>
+                <th class="sort-name pointer" onclick="onSort('name')">Name <span></span></th>
+                <th class="sort-price pointer" onclick="onSort('price')">Price ($) <span></span></th>
+                <th class="sort-rating pointer" onclick="onSort('rating')">Rating <span></span></th>
+                <th>Actions</th>
+            </thead>
+            <tbody class="books-content"></tbody>
+        </table>
+
+        <section class="paging-section">
+            <button class="prev-page-button" onclick="onPrevPage()">&lt;&lt;</button>
+            <div class="page-numbers"></div>
+            <button class="next-page-button" onclick="onNextPage()">&gt;&gt;</button>
+            Books per page:
+            <input type="number" name="items-per-page"></input>
+            <button onclick="onSetItemsPerPage()">Confirm</button>
+        </section>
+    </section>
+
+
+    <div class="price-update-modal">
+        <section class="price-update-info">
+            <span class="book-to-update"></span><input type="number" name="price"></input>
+            <button class="update-price-btn" onclick="onPriceUpdate()">Update Price</button>
+            <button class="close-modal" onclick="onClosePriceUpdate()">X</button>
+            <input type="text" name="book-id" hidden></input>
+        </section>
+    </div>
+
+
+    <div class="book-details-modal" hidden>
+        <section class="book-info">
+            <button class="close-modal details-modal-close" onclick="onCloseBookDetailsModal()">X</button>
+            <h2 class="book-title"></h2>
+            <h3 class="book-price"></h3>
+            <section class="rate-handler">
+                <h4>Rating</h4>
+                <button class="lower-rate-btn" onclick="onRateClick(-1)">-</button>
+                <span class="book-rate">0</span>
+                <button class="inc-rate-btn" onclick="onRateClick(1)">+</button>
+            </section>
+            <input type="text" name="book-id" hidden></input>
+            <img src="img/defaultBook.jpg" width="150">
+            <p class="book-desc"></p>
+        </section>
+    </div>
+
+    <script src="js/util-service.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/books-service.js"></script>
+    <script src="js/books-controller.js"></script>
+</body>
+
+</html>

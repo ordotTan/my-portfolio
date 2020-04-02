@@ -11,7 +11,7 @@ var gPageIdx = 0;
 
 
 function getBooksForRender() {
-    var startIdx = gPageIdx * Math.min(gPageSize, gBooks.length)
+    var startIdx = gPageIdx * Math.min(gPageSize,gBooks.length)
     sortBooks(gBooks)
     var books = gBooks.slice(startIdx, startIdx + gPageSize)
     return books
@@ -48,10 +48,6 @@ function getSortType() {
     return gSortType
 }
 
-function getSortBy() {
-    return gSortBy
-}
-
 function setSortType(sortBy, sortType) {
     gSortBy = sortBy
     gSortType = sortType
@@ -64,7 +60,7 @@ function getBookbyID(bookId) {
 function updateBook(bookId, key, value) {
     var book = getBookbyID(bookId)
     if (key === 'price') book.price = value
-    else if (key === 'rating') book.rating = value
+    else if (key === 'rating') book.rating += value
     _saveBooks()
 }
 
@@ -78,7 +74,7 @@ function addBook(name, price) {
 function removeBook(bookId) {
     var bookIdx = gBooks.findIndex(book => book.id === bookId)
     gBooks.splice(bookIdx, 1)
-    if (gBooks.length % gPageSize === 0 && gPageIdx > 0) gPageIdx--
+    if (gBooks.length % gPageSize === 0 && gPageIdx>0) gPageIdx--
     _saveBooks()
 
 }
@@ -119,11 +115,6 @@ function setItemsPerPage(items) {
     gPageIdx = 0
 }
 
-function setLanguage(selection) {
-    gCurrLang = selection
-    if (selection === 'he') document.querySelector('body').classList.add('body-rtl')
-    else document.querySelector('body').classList.remove('body-rtl')
-}
 
 // private functions 
 

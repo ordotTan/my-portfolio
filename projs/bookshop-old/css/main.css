@@ -4,18 +4,12 @@
 
 body {
     font-family: 'Baloo Thambi 2', cursive;
-    background-image: url("/img/books2.jpg");
-    background-size: 100%;
-    
-}
-
-.body-rtl {
-    direction:rtl;
-    text-align:right;
-}
-
-h1 {
-    text-align: center;
+    background-image: url("../img/books.jpg");
+    background-repeat: repeat;
+    background-size: 1500px;
+    color: black;
+    padding: 0;
+    margin: 0;
 }
 
 h4 {
@@ -26,22 +20,33 @@ h2 {
     margin: auto;
 }
 
-
 th {
-    font-size: 20px;
-    color:#b84835;
+    background-color: #92645a;
+    color: white;
+    padding: 15px;
 }
 
 td {
-    font-size: 15px;
-    font-weight: bold;
+    background-color:#d7b58d94;
+    font-size: 20px;
+    padding: 5px;
+
 }
 
-.modal-content ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
+button {
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 1;
+    height: 30px;
+    
+}
+
+button:hover {
+    opacity: 0.8;
+
 }
 
 /* price update modal */
@@ -53,10 +58,19 @@ td {
     padding: 10px;
     background-color:#ad9b9bcf;
     border-radius: 5px;
-    border: 1px solid black;
-    
+    border: 1px solid black
 }
 
+.price-update-info {
+    display:flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.update-price-btn {
+    margin-left:5px;
+}
 
 .book-to-update {
     color:black;
@@ -66,13 +80,8 @@ td {
 
 }
 
-.modal-bg-color {
-    background-color: #ad9b9bcf;
-}
-
 
 /* book details modal */
-
 
 .book-details-modal {
     position: fixed;
@@ -112,11 +121,6 @@ td {
     color: red;
 }
 
-.rate-handler {
-    display:flex;
-    justify-content: space-between;
-}
-
 /* upper-toolbar */
 
 .upper-toolbar {
@@ -125,7 +129,7 @@ td {
     padding: 5px;
     z-index: 1;
     display: flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     background-color:#cfbcab;
     width: 100%;
     height: 50px;
@@ -133,6 +137,35 @@ td {
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 
+}
+
+.add-book-input {
+    background-color:#9c9387;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 2px;
+    margin-left: 5px;
+}
+
+.add-book-confirm-btn {
+    margin-left: 10px;
+}
+
+
+.upper-toolbar a {
+
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: center;
+    padding: 10px;;
+    text-align: center;
+    text-decoration: none;
+    opacity: 1;
+    height: 30px;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
 }
 
 /* main content */
@@ -152,21 +185,18 @@ td {
 
 .active-page {
    border: 3px black solid;
+
 }
 
 /* Helpers */
 
 .disabled-button {
-    color:yellow;
-    pointer-events: none; 
+    color:lightgray;
+    pointer-events: none;
     cursor: default;
-    background-color:black
+    background-color: rgba(100,100,100,0.5);
 }
 
 .pointer {
     cursor: pointer;
-}
-
-.flex {
-    display: flex;
 }

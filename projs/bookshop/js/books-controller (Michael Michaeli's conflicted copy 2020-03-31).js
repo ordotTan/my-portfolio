@@ -7,6 +7,7 @@ var gBookId
 
 function onInit() {
     document.querySelector('.price-update-modal').hidden = true
+   // document.querySelector('.add-book-input').hidden = true
     createBooks()
     renderBooks()
     renderPaging()
@@ -21,13 +22,12 @@ function renderBooks() {
     handleSortIcons();
 }
 
-
 function getBookHTML(book, idx) {
-    return `<tr><th scope="row">${idx + 1}</th><td>${book.id}</td><td>${book.name}</td><td>${+book.price}</td><td>${+book.rating}</td>
+    return `<tr><td>${idx + 1}</td><td>${book.id}</td><td>${book.name}</td><td>${+book.price}</td><td>${+book.rating}</td>
         <td class="actions">
             <button type="button" class="btn btn-primary" onclick="renderBookDetails('${book.id}')" data-trans="readBook">Read</button>
-            <button type="button" class="btn btn-secondary" onclick="onUpdateBook('${book.id}')" data-trans="updateBook">Update</button>
-            <button data-trans="deleteBook" type="button" class="btn btn-danger" onclick="onSetBookIDtoDelete('${book.id}')"  data-toggle="modal" data-target="#deleteBookConfirm">Delete</button> 
+            <button type="button" class="btn btn-primary" onclick="onUpdateBook('${book.id}')" data-trans="updateBook">Update</button>
+            <button data-trans="deleteBook" type="button" class="btn btn-primary" onclick="onSetBookIDtoDelete('${book.id}')"  data-toggle="modal" data-target="#deleteBookConfirm">Delete</button> 
         </td>
     </tr> 
     `
@@ -36,38 +36,6 @@ function getBookHTML(book, idx) {
 
 function onSetBookIDtoDelete(bookId) {
     gBookId = bookId
-    renderDeleteConfirmModal(bookId)
-}
-
-function getCurrentBookID() {
-    return gBookId
-}
-
-
-function renderDeleteConfirmModal() {
-    const bookIdToDelete = getBookbyID(gBookId)
-    const bookName=bookIdToDelete.name
-    const modalHTML = `<div class="modal fade" id="deleteBookConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-        <div class="modal-header modal-bg-color">
-        <h5 class="modal-title" id="exampleModalLabel">Deleting "${bookName}"!</h5>
-        </div>
-            <div data-trans="deleteConfirm" class="modal-body modal-bg-color">
-                Are you sure?
-            </div>
-            <div class="modal-footer modal-bg-color">
-                <button data-trans="cancel" type="button" class="btn btn-secondary"
-                    data-dismiss="modal">Cancel</button>
-                <button data-trans="approveInput" type="button" onclick="onRemoveBook(gBookId)"
-                    class="btn btn-primary" data-dismiss="modal">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>`
-
-    document.querySelector('.confirmModal').innerHTML = modalHTML
 }
 
 
@@ -97,6 +65,7 @@ function renderBookDetails(bookId) {
     elModal.querySelector('h2').innerText = book.name
     elModal.querySelector('h3').innerText = 'Price: ' + book.price + '$'
 }
+
 
 function renderPaging() {
     var elPaging = document.querySelector('.page-numbers');
@@ -159,23 +128,22 @@ function handlePagination() {
 function onCloseBookDetailsModal() {
     document.querySelector('.book-details-modal').hidden = true
 }
-
 function onClosePriceUpdate() {
     document.querySelector('.price-update-modal').hidden = true
 }
 
 function onRateClick(rateInc) {
     const elModal = document.querySelector('.book-details-modal')
+    const elBookId = elModal.querySelector('input[name="book-id"]')
     const elIncRateButton = elModal.querySelector('.inc-rate-btn')
     const ellowerRateButton = elModal.querySelector('.lower-rate-btn')
-    var currRate = elModal.querySelector('.book-rate').innerText
 
     elIncRateButton.classList.remove('disabled-button')
     ellowerRateButton.classList.remove('disabled-button')
 
-    var newRate = +currRate + rateInc
+    updateBook(elBookId.value, 'rating', rateInc)
+    const newRate = getBookbyID(elBookId.value).rating
     elModal.querySelector('.book-rate').innerText = newRate
-
     //Handle new rate
     if (newRate === 10) {
         elIncRateButton.classList.add('disabled-button')
@@ -183,14 +151,6 @@ function onRateClick(rateInc) {
     if (newRate === 0) {
         ellowerRateButton.classList.add('disabled-button')
     }
-}
-
-function onUpdateRate() {
-    const elModal = document.querySelector('.book-details-modal')
-    const elBookId = elModal.querySelector('input[name="book-id"]')
-    const elBookRate = elModal.querySelector('.book-rate')
-    elModal.hidden = true
-    updateBook(elBookId.value, 'rating', +elBookRate.innerText)
     renderBooks()
 }
 
@@ -219,24 +179,26 @@ function onPriceUpdate() {
 }
 
 
-function onRemoveBook(bookId) {
+function renderConfirmDeleteModal(bookId) {
+    var elModal = document.querySelector('#deleteBookConfirm');
+    elModal.hidden = false
+    console.log(elModal)
+    //$('#deleteBookConfirm').modal('show')
+}
 
-    
+function onRemoveBook(bookId) {
+    // var isConfirm = confirm('Are you sure?')
+    //if (isConfirm) {
     removeBook(bookId)
     renderBooks()
     renderPaging()
     handlePagination()
-
+    // }
 }
 
 function onAddBook() {
-    const elNameInput = document.querySelector('input[name="bookName"]')
-    const elPriceInput = document.querySelector('input[name="bookPrice"]')
-    if (!elNameInput.value || !elPriceInput.value) {
-        elNameInput.value = ''
-        elPriceInput.value = ''
-        return
-    }
+    const elNameInput = document.querySelector('.input[name="name"]')
+    const elPriceInput = document.querySelector('.input[name="price"]')
     addBook(elNameInput.value, elPriceInput.value)
     elNameInput.value = ''
     elPriceInput.value = ''
@@ -273,6 +235,18 @@ function handleSortIcons() {
 
 }
 
+function onShowAddBookToggle() {
+    var buttonText = document.querySelector('.add-book-button').innerText
+    if (buttonText === 'Add New Book') {
+        document.querySelector('.add-book-input').hidden = false
+        document.querySelector('.add-book-button').innerText = 'Close'
+    }
+    else {
+        document.querySelector('.add-book-input').hidden = true
+        document.querySelector('.add-book-button').innerText = 'Add New Book'
+
+    }
+}
 
 function onSetItemsPerPage() {
     var items = document.querySelector('input[name="items-per-page"]').value
@@ -281,10 +255,4 @@ function onSetItemsPerPage() {
     renderBooks()
     renderPaging()
     handlePagination()
-}
-
-function onSetLanguage(selection) {
-    document.querySelector('.book-details-modal').hidden = true
-    setLanguage(selection);
-    doTrans();
 }

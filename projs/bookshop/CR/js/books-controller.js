@@ -33,17 +33,19 @@ function getBookHTML(book, idx) {
     `
 }
 
-
+// @CR: you send the bookId to the render function no need to save the id in the global var
 function onSetBookIDtoDelete(bookId) {
     gBookId = bookId
     renderDeleteConfirmModal(bookId)
 }
 
+// @CR: never in use
 function getCurrentBookID() {
     return gBookId
 }
 
-
+// @CR: this is a huge function of render with only one small variable to render
+// @CR: you send bookId at onSetBookID.... but you dont receive it here
 function renderDeleteConfirmModal() {
     const bookIdToDelete = getBookbyID(gBookId)
     const bookName=bookIdToDelete.name
@@ -98,6 +100,7 @@ function renderBookDetails(bookId) {
     elModal.querySelector('h3').innerText = 'Price: ' + book.price + '$'
 }
 
+// @CR: you could write this in utils file :)
 function renderPaging() {
     var elPaging = document.querySelector('.page-numbers');
     var numOfPages = getNumOfPages()
@@ -108,6 +111,7 @@ function renderPaging() {
     elPaging.innerHTML = strHTML
 }
 
+// @CR: if you use this then button should be elButton
 function onSwitchToPage(button, pageNum) {
     var elPageButtons = document.querySelectorAll('.page-numbers button');
     elPageButtons.forEach(button => button.classList.remove('active-page'))

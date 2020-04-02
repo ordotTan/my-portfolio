@@ -1,0 +1,12 @@
+Hey,
+
+Did a code review on i18n project - really good job!
+
+Few things to keep in mind:
+- No need to render a full modal just for a small h5 change
+- a bit more work on naming (just a tiny bit more)
+
+Had a good time going over your code!
+Keep up the good work!
+
+Yoad :)
