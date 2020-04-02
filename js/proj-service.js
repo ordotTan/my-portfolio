@@ -69,7 +69,7 @@ const gProjDates= [
 
 
 const gProjLabels = [
-    ["CRUD", "MVC"],
+    ["CRUD", "MVC",'i18n'],
     ["Matrixes", "Keyboard Events"],
     ["Matrixes", "Functional Programming"],
     ["Bootstrap", "jquery"],
