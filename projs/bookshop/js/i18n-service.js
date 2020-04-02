@@ -92,9 +92,6 @@ var gTrans = {
         en: 'Hooray! New Book!',
         he: 'הידד! ספר חדש!'
     }
-
-
-    
 }
 
 function getTrans(transKey) {
