@@ -38,32 +38,33 @@
     <section class="new-quest" style="display: none">
       <h2>OK, I gave up...</h2>
 
-      <form class="form-horizontal">
+      <form onsubmit="onAddGuess(event)" class="form-horizontal">
         <div class="form-group text-left">
           <label for="newGuess" class="col-sm-12 control-label font-weight-bold">You thought of: </label>
           <div class="col-sm-12">
-            <input name="newGuess" type="txt" class="form-control" id="newGuess" placeholder="Your Guess" required>
+              <input name="newGuess" type="txt" class="form-control" id="newGuess" required placeholder="Your Guess"
+                required>
           </div>
         </div>
         <div class="form-group text-left">
           <label for="newQuest" class="col-sm-12 control-label font-weight-bold">Question to differentiate</label>
           <div class="col-sm-12">
-            <input name="newQuest" type="txt" class="form-control" id="newQuest"
+            <input name="newQuest" type="txt" required class="form-control" id="newQuest"
               placeholder="The answer is YES for yours" required>
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-12">
-            <button type="submit" onclick="onAddGuess(); return false;" class="btn btn-primary border-dark">
-              Make me Smarter!
-            </button>
+            <input type="submit" value="Make me Smarter!" class="btn btn-primary border-dark">
+          </input>
             <br>
-            <div class="spinner-border text-primary mt-10" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-        </div>
+            
+      </div>
+      </div>
       </form>
+      <div class="spinner-border text-primary mt-10" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </section>
   
   </main>

@@ -50,10 +50,12 @@ function onUserResponse(res) {
     }
 }
 
-function onAddGuess() {
+function onAddGuess(ev) {
+    ev.preventDefault();
     $('.spinner-border').show()
+    $('.form-horizontal').hide()
+    $('.new-quest h2').text('Getting smarter...')
     $('.box img').attr('src', 'img/layout/memorize.png')
-    $('.form-group .btn-primary').text('Getting smarter...')
     var newGuess = $('#newGuess').val()
     var newQuestion = $('#newQuest').val()
     addGuess(newQuestion, newGuess, gLastRes)
@@ -62,7 +64,8 @@ function onAddGuess() {
     $('.spinner-border').show()
     setTimeout(function () {
         $('.box img').attr('src', 'img/layout/logo2.png')
-        $('.form-group .btn-primary').text('Make me Smarter!')
+        $('.new-quest h2').text('Make me Smarter!')
+        $('.form-horizontal').show()
         $('.spinner-border').hide()
         onRestartGame();
     }, 2500);
